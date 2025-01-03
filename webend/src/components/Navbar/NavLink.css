@@ -1,0 +1,32 @@
+.nav-link{
+    transition: .25;
+    text-decoration: "none";
+    color: #F3EFE0;
+    border-left: 2px solid #F3EFE0;
+    border-right: 2px solid #F3EFE0;
+    padding: 0rem 1rem;
+    position: relative;
+}
+
+.nav-link::after{
+    transition: .25;
+    content: " ";
+    background-color: white;
+    width: 0%;
+    height: 2px;
+    bottom: 0px;
+    left: 50%;
+    position: absolute;
+    color: #F3EFE0;
+}
+
+.nav-link:hover::after{
+    transition: .25;
+    width: 80%;
+    left: 10%;
+}
+
+.nav-link:hover{
+    transition: .25;
+    color: #F3EFE0;
+}

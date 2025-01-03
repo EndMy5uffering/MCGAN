@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox='0 0 500 500'>
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_13" d="m57.5,60" opacity="NaN" stroke="null" fill="#ffffff"/>
+  <line stroke="#ffffff" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_6" y2="432.71795" x2="55" y1="357.96795" x1="100.47223" stroke-width="20" fill="none"/>
+  <line stroke="#ffffff" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_7" y2="441.7906" x2="62.14531" y1="399.08336" x1="141.02776" stroke-width="20" fill="none"/>
+  <ellipse stroke="null" ry="20.19224" rx="19.03839" id="svg_9" cy="433.83316" cx="64.34699" stroke-width="20" fill="#ffffff"/>
+  <rect transform="rotate(45 423.264 77.4305)" id="svg_10" height="27.08333" width="77.08333" y="63.88889" x="384.72222" stroke-width="20" stroke="null" fill="#ffffff"/>
+  <rect transform="rotate(45 259.722 239.583)" stroke="null" id="svg_14" height="401.26072" width="77.08333" y="38.95285" x="221.18059" stroke-width="20" fill="#ffffff"/>
+  <rect stroke="#ffffff" id="svg_15" height="470" width="470" y="15" x="15.30556" stroke-width="2" fill="none"/>
+ </g>
+</svg>

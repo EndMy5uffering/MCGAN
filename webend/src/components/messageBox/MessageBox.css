@@ -1,0 +1,50 @@
+.message-box-container-style{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.382);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+.message-box-inner-container{
+    position: relative;
+    display: flex;
+    min-width: 20%;
+    max-width: 60%;
+    max-height: 60%;
+    padding: .5rem 0rem;
+    flex-direction: column;
+    background-color: rgb(29, 29, 29);
+    color:rgb(255, 255, 255);
+    /*border-radius: 20px;*/
+    overflow: hidden;
+    border: solid 1px white;
+}
+
+.message-box-header-style{
+    min-height: 2rem;
+    max-height: 2rem;
+}
+
+.message-box-footer-style{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    min-height: 2rem;
+    max-height: 2rem;
+}
+
+.message-box-message-style{
+    overflow: auto;
+    border-top: solid 1px white;
+    border-bottom: solid 1px white;
+    padding: 1rem 2rem;
+}

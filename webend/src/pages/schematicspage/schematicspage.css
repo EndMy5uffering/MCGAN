@@ -1,0 +1,17 @@
+.tileset-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-image: url('/LOD0/dungeonRoom.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tileset-table-container{
+    padding: 2rem 2rem;
+    overflow: auto;
+    backdrop-filter: blur(5px);
+    height: 100%;
+}

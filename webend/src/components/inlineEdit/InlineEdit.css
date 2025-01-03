@@ -1,0 +1,32 @@
+.display-editor{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: .5rem;
+}
+
+.display-editor img{
+    position: absolute;
+    right: 0;
+    display: none;
+}
+
+.display-editor:hover img{
+    display: inline;
+}
+
+.display-editor input{
+    padding: .4rem;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border: none;
+}
+
+.display-editor input:focus{
+    outline: none;
+    border: solid 1px white;
+}

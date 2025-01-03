@@ -1,0 +1,26 @@
+
+
+.page-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    background-image: url('backdrop_01.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.inner-container{
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    overflow: auto;
+    backdrop-filter: blur(5px);
+    height: 100%;
+    width: 100%;
+    max-height: 100%;
+}

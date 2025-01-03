@@ -30,6 +30,7 @@ export const SchematicView = () => {
     texture.magFilter = THREE.NearestFilter
     let textureMaterial = new THREE.MeshBasicMaterial({map: texture})
     textureMaterial.vertexColors = true
+    textureMaterial.transparent = true
     if(!schematicStore.selectedSchematic)
         return <Navigate to="/schematics"/>
 

@@ -63,7 +63,7 @@ export class Tile{
                         //console.log(model_data)
                         continue
                     }
-                    let block: Block = new Block(blocktype, [x+this.position[0],height.getShort() + y + this.position[2],z+this.position[1]])
+                    let block: Block = new Block(blocktype, [x+this.position[0],y + this.position[1],z+this.position[2]])
                     block.resolve(model_data[NBTHelper.getBlockTypeFromMaterial(blocktype)])
                     this.blocks.push(block)
                 }

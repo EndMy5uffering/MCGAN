@@ -150,6 +150,11 @@ export class Model {
   }
 
   resolve_color = (blocktype: string) => {
+    if(blocktype.includes('leaves') ||
+      blocktype.includes('grass'))
+    {
+      this.setVertexColor([0.0,1.0,0.0])
+    }
       switch (blocktype) {
           case 'oak_leaves':
               this.setVertexColor([0.0,1.0,0.0])

@@ -35,9 +35,9 @@ export class Tile{
             let val = data.payload[i]
             let overflow = 0
             while(data.payload[i] > 127) {
-                overflow += 1
                 i += 1
-                val += data.payload[i] - 1 * Math.pow(overflow, 128)
+                val += (data.payload[i] & 0x7f) * (Math.pow(overflow, 128) - 1)
+                overflow += 1
             }
             converted[count++] = val
         }

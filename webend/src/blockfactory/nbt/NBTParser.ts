@@ -55,10 +55,10 @@ TAG[6] = (iter: any, no_name?: boolean) => {
 }
 TAG[7] = (iter: any, no_name?: boolean) => {
     const name = no_name ? 'TAG_Byte_Array' : parse_name(iter)
-    const size = toInt32(parse_next(iter, 4)) 
+    const size = toUInt32(parse_next(iter, 4)) 
     let buffer: number[] = []
     for(let i = 0; i < size; ++i){
-        buffer.push(toInt8(parse_next(iter, 1)))
+        buffer.push(toUInt8(parse_next(iter, 1)))
     }
     return new NBTByteArrayTag(name, buffer)
 }

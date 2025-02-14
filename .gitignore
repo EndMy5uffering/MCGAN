@@ -1,5 +1,12 @@
 mc_model_data
 schematics
+remapped
+
+data_plots
+datasets
+Network_Output
+
+*.pt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

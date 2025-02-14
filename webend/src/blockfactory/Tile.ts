@@ -32,12 +32,12 @@ export class Tile{
         var converted: number[] = []
         let count = 0
         for(let i = 0; i < data.payload.length; ++i) {
-            let val = data.payload[i]
+            let val = data.payload[i] & 0x7f
             let overflow = 0
             while(data.payload[i] > 127) {
                 i += 1
-                val += (data.payload[i] & 0x7f) * (Math.pow(overflow, 128) - 1)
                 overflow += 1
+                val += (data.payload[i] & 0x7f) << 7*overflow
             }
             converted[count++] = val
         }

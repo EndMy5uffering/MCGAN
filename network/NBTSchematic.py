@@ -73,14 +73,13 @@ class Schematic:
             np_data = np.empty(shape=self.volume(), dtype=np.int_)
             data_iter = iter(self.data)
             for i,x in enumerate(data_iter):
-                val = x
+                val = x & 0x7F
                 overflow = 0
                 while x > 127:
                     x = next(data_iter)
-                    val += (x & 0x7F) * 128**overflow -1
                     overflow += 1
+                    val += (x & 0x7F) << 7*overflow
                 np_data[i] = val
-            print(self.volume(), i, self.volume() == i)
             np_data.resize(self.height, self.length, self.width)
             return np_data
     
@@ -181,7 +180,7 @@ class Schematic:
             palette = self.palette
         size = self.volume() * ((max(palette.values()).bit_length() + 6) // 7)
         data = bytearray(size)
-        i = iter(range(size))
+        i = iter(range(size + 1))
         
         for x in np_data.flatten():
             while x >= 128:

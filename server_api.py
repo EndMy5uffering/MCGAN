@@ -9,7 +9,7 @@ import os
 import json
 
 
-SCHEM_FOLDER = Path("./schematics")
+SCHEM_FOLDER = Path("./Network_Output")
 BLOCK_MODEL_FOLDER = Path("./mc_model_data/__mc_model_data")
 TEXTUREMAP_PATH = Path("./mc_model_data/__mc_model_data/block_textures.png")
 

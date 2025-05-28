@@ -3,19 +3,31 @@ import torch.nn as nn
 import torchvision.transforms as transforms
 from pathlib import Path
 from tqdm import tqdm
+import socket
 
-def load_train(batchsize = 32, shuffle = True, norm_factor=26684, datapath: Path = "./datasets/data_set_tree_03.csv") -> torch.utils.data.DataLoader:
 
-    with open(datapath, "r") as f:
-        lines = f.readlines()
-        data = [None] * len(lines)
-        for i, l in tqdm(enumerate(lines), total=len(lines)):
-            lsp = l.strip("\n").split(",")
-            d = {
-                "dim": torch.tensor([int(lsp[0]), int(lsp[1]), int(lsp[2])]), 
-                "data": torch.tensor([(float(n)/norm_factor) for n in lsp[3:]])
-            }
-            data[i] = d
-        dataloader = torch.utils.data.DataLoader(data, batchsize, shuffle)
-        
-    return dataloader
+def quickLoad(batchsize = 32, shuffle = True, normalized=False, datapath: Path = "./network/datasets/compact_set_02.pt") -> tuple[torch.utils.data.DataLoader, list[str]]:
+
+    reNorm = lambda x : x
+
+    x = torch.load(datapath, weights_only=False)
+    if normalized:
+        max_val: int = max(x["pallet"].values())
+        x["data"] = [{"dim": e["dim"], "data": (e["data"]/max_val)} for e in x["data"]] 
+        reNorm = lambda x: x * max_val
+    return torch.utils.data.DataLoader(x["data"], batchsize, shuffle), x["pallet"], reNorm
+
+def quickLoad_overfit(batchsize = 32, shuffle = True, normalized=False, datapath: Path = "./network/datasets/compact_set_02.pt", sample=0, samplesize=1000) -> tuple[torch.utils.data.DataLoader, list[str]]:
+
+    reNorm = lambda x : x
+
+    raw = torch.load(datapath, map_location='cpu', weights_only=False)
+    if normalized:
+        max_val: int = max(raw["pallet"].values())
+        raw["data"] = [{"dim": e["dim"], "data": (e["data"]/max_val)} for e in raw["data"]] 
+        reNorm = lambda x: x * max_val
+    dataloader = torch.utils.data.DataLoader([raw["data"][sample] for _ in tqdm(range(0, samplesize), total=samplesize)], batchsize, shuffle)
+    return dataloader, raw["pallet"], reNorm
+
+
+

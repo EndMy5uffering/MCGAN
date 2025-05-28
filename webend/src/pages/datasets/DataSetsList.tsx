@@ -4,7 +4,6 @@ import { Link, Navigate } from 'react-router-dom'
 import './DataSetsList.css'
 
 import '../../scss/styles.scss'
-import * as _bootstrap from 'bootstrap'
 
 export const DataSetslist = () => {
 

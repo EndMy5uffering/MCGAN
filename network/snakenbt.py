@@ -672,6 +672,7 @@ def _encode_value_primitive(
 
         fp.write(TagEnd.tag_id.to_bytes(1, "big"))
     else:
+        print(value)
         raise TypeError(f"unknown type to encode '{value.__class__.__name__}'")
 
 

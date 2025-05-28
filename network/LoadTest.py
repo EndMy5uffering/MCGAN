@@ -94,7 +94,7 @@ def generate_debug_output():
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print(f"Running on {device}")
 
-    model = TreeGan.Generator()
+    model = TreeGan.EfficientUpsampler(6)
     model.load_state_dict(torch.load("./model_scripted_G.pt"))
     model.eval()
 
@@ -104,7 +104,7 @@ def generate_debug_output():
     minL, maxL = 20, 85
 
     lable = torch.tensor([[random.randint(minW, maxW), random.randint(minH, maxH), random.randint(minL, maxL)] for _ in range(samples)]).float()
-    noise = torch.randn(samples, 2560).float()
+    noise = torch.randn(samples, 3).float()
 
     sample = model(lable, noise)
 
@@ -113,9 +113,6 @@ def generate_debug_output():
 
     MAX_PALETTE_VALUE = max(NORM_PALETTE.values())
 
-    #((float(n)/26683)-0.5)/0.5
-    #arr *= 0.5
-    #arr += 0.5
     arr *= MAX_PALETTE_VALUE
     arr[arr<0] = 0
 

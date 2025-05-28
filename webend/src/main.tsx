@@ -9,6 +9,11 @@ import { SchematicsListPage } from './pages/schematicspage/schematicspage'
 import { SchematicView } from './pages/schematicviewpage/schematicViewPage'
 import { DataSetslist } from './pages/datasets/DataSetsList'
 
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import Popper from 'popper.js';
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter>
     <Routes>
